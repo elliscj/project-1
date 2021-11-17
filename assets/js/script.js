@@ -24,16 +24,22 @@ window.onload = function () {
 
 var place = document.getElementById("#place-search-input");
 
-// function getApi(requestUrl) {
-//   fetch(requestUrl)
-//     .then(function (response) {
-//       console.log(response);
-//       if (response.status === 200) {
-//         responseText.textContent = response.status;
-//       }
-//       return response.json();
-//     })
-//     .then((data) => {
-//       console.log(data);
-//     });
-// }
+brewUrl =
+  "https://api.openbrewerydb.org/breweries?per_page=4&by_city=" +
+  searchLocation;
+
+console.log(brewUrl);
+
+function getApi() {
+  // fetch request gets a list of all the repos for the node.js organization
+
+  //fetch returns us a promise object - promise obj have 3 states - pending resolved rejected
+  fetch(brewUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    });
+}
+getApi();
