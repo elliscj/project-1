@@ -8,7 +8,7 @@ var requestUrl =
   "https://www.mapquestapi.com/geocoding/v1/address?key=1zplhBsQEJyaGd98SGJ6HjcN66lVvSDL";
 
 let searchLocation = ""; // prompt("Where would you like to drink beer?");
-beerLocation = searchLocation.replaceAll(" ", "_");
+let beerLocation = "";
 
 console.log(searchLocation);
 console.log(beerLocation);
@@ -37,13 +37,14 @@ document.getElementById("submit").addEventListener("click", findBreweries);
 
 // var place = document.getElementById("#place-search-input");
 
+console.log("./imgs/img-1.jpg");
+
 function getApi() {
   // fetch request gets a list of all the repos for the node.js organization
 
   brewUrl =
-    "https://api.openbrewerydb.org/breweries?by_city=" +
-    beerLocation +
-    "&per_page=4";
+    "https://api.openbrewerydb.org/breweries?per_page=4&by_city=" +
+    beerLocation;
 
   console.log(brewUrl);
 
@@ -65,7 +66,7 @@ function getApi() {
           data[i].street),
           data[i].city,
           data[i].state;
-        // document.getElementById("card-url").textContent = data[i].website_url;
+        document.getElementById("card-url").textContent = data[i].website_url;
       }
     });
 }
