@@ -15,6 +15,9 @@ console.log(beerLocation);
 
 // window.onload =
 function findBreweries() {
+  map.remove();
+  document.getElementById("map-container").innerHTML =
+    "<div id='map' style='width: 100%; height: 300px;'></div>";
   searchLocation = document.getElementById("cityreq").value;
   beerLocation = searchLocation.replaceAll(" ", "_");
 
@@ -66,7 +69,8 @@ function getApi() {
           data[i].street),
           data[i].city,
           data[i].state;
-        document.getElementById("card-url").textContent = data[i].website_url;
+        document.querySelectorAll(".card-url")[i].textContent =
+          data[i].website_url;
       }
     });
 }
