@@ -1,5 +1,9 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: dimgray;
 }
 
@@ -7,10 +11,6 @@ body {
   font-size: 30px;
   font-weight: bold;
   text-align: center;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 h2 {
@@ -42,43 +42,51 @@ input[type="button"] {
   border: 5px;
 }
 
-/* Float four columns side by side */
-.column {
-  float: left;
-  width: 25%;
-  padding: 0 10px;
-  margin-bottom: 25px;
-}
-
-/* Remove extra left and right margins, due to padding */
-.row {
-  margin: 0 -5px;
-  display: flex;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Style the counter cards */
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
+  border-width: 0.5px;
+  padding: 10px;
+  float: left;
+  width: 23%;
   text-align: center;
-  background-color: lightgray;
-  width: 16rem;
+  background-color: gray;
+  border-radius: 10px;
+  min-height: 300px;
+  max-height: 300px;
+  margin-bottom: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
   overflow-wrap: break-word;
-  margin: 0 auto;
+  font-size: 1.25vw;
+}
+
+.card img {
+  width: 100%;
+}
+
+#map {
+  margin: auto;
+  width: 75%;
+
 }
 
 /* Responsive columns */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
+@media screen and (max-width: 992px) {
+  .card {
+    width: 50%;
   }
+
+  #map {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
+
+  #map {
+    width: 80%;
+  }
+
 }
