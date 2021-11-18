@@ -16,10 +16,7 @@ console.log(beerLocation);
 // window.onload =
 function findBreweries() {
   searchLocation = document.getElementById("cityreq").value;
-  beerLocation = searchLocation;
-  console.log(beerLocation);
-
-  getApi();
+  beerLocation = searchLocation.replaceAll(" ", "_");
 
   L.mapquest.key = "1zplhBsQEJyaGd98SGJ6HjcN66lVvSDL";
   L.mapquest.geocoding().geocode(searchLocation, createMap);
@@ -32,6 +29,8 @@ function findBreweries() {
       zoom: 14,
     });
   }
+
+  getApi();
 }
 
 document.getElementById("submit").addEventListener("click", findBreweries);
@@ -44,9 +43,8 @@ function getApi() {
   // fetch request gets a list of all the repos for the node.js organization
 
   brewUrl =
-    "https://api.openbrewerydb.org/breweries?by_city=" +
-    beerLocation +
-    "&per_page=4";
+    "https://api.openbrewerydb.org/breweries?per_page=4&by_city=" +
+    beerLocation;
 
   console.log(brewUrl);
 
@@ -62,11 +60,8 @@ function getApi() {
       console.log(data[0].name);
 
       for (let i = 0; i < 4; i++) {
-        let backgroundImages = Math.floor(Math.random() * 19) + 1;
-
         document.getElementsByClassName("card-title")[i].textContent =
           data[i].name;
-        // document.getElementsByClassName("card-imgs")[i].src = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FImage&psig=AOvVaw17UayflL5vNx0VPaxoqbDO&ust=1637295349984000&source=images&cd=vfe&ved=2ahUKEwicl4zPhqH0AhWCK6wKHQhNA6AQr4kDegUIARDMAQ" // "./imgs/img-" + backgroundImages + ".jpg";
         (document.getElementsByClassName("card-text")[i].textContent =
           data[i].street),
           data[i].city,
