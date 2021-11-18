@@ -55,6 +55,7 @@ input[type=button] {
 /* Remove extra left and right margins, due to padding */
 .row {
   margin: 0 -5px;
+  display: flex;
 }
 
 /* Clear floats after the columns */
@@ -70,9 +71,18 @@ input[type=button] {
   padding: 16px;
   text-align: center;
   background-color: lightgray;
+  width: 16rem;
+  overflow-wrap: break-word;
+  margin: 0 auto;
 
 }
 
+.card-background-image {
+  width: 80%;
+  aspect-ratio: 1 / 1;
+  border: solid 1px black;
+  margin: 0 auto; 
+}
 
 
 /* Responsive columns */
