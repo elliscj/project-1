@@ -1,81 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"
-    />
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.css"
-    />
-    <script type="text/javascript"></script>
-    <title>BREWS OF INTEREST</title>
-  </head>
 
-  <body>
-    <section>
-      <header id="title">Map your way to the Best Breweries!!!</header>
-    </section>
-    <br />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 
-    <div class="inputcity">
-      <input id="cityreq" type="text" placeholder="Enter City Name" />
-      <input id="submit" type="button" value="Submit" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montagu+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css" />
+  <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.css" />
+
+  <title>BREWS OF INTEREST</title>
+</head>
+
+<body class="site">
+  <section>
+    <header id="title">Map your way to the Best Breweries!!!</header>
+  </section>
+  <br />
+
+  <div class="inputcity">
+    <input id="cityreq" type="text" placeholder="Enter City Name"/>
+    <input id="submit" type="button" value="Submit"/>
+  </div>
+  <div>
+    <h1>Brews of interest in your chosen area</h1>
+  </div>
+  <br/>
+
+  <main>
+
+    <div class="brewresults">
+
+      <section class="card">
+        <div id="brew1">
+          <header class="card-title" id="name-1">Brewery 1</header>
+          <p class="card-text" id="address-1">Address</p>
+          <a href="#" class="btn btn-primary card-url" id="url-1">Brewery website</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <div id="brew2">
+          <header class="card-title" id="name-2">Brewery 2</header>
+          <p class="card-text" id="address-2">Address</p>
+          <a href="#" class="btn btn-primary card-url" id="url-2">Brewery website</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <div id="brew3">
+          <header class="card-title" id="name-3">Brewery 3</header>
+          <p class="card-text" id="address-3">Address</p>
+          <a href="#" class="btn btn-primary card-url" id="url-3">Brewery website</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <div id="brew4">
+          <header class="card-title" id="name-4">Brewery 4</header>
+          <p class="card-text" id="address-4">Address</p>
+          <a href="#" class="btn btn-primary card-url" id="url-4">Brewery website</a>
+        </div>
+      </section>
     </div>
-    <br />
+  </main>
+  <br/>
 
-    <h2>Breweries in your local area</h2>
+  <section id="map-container">
+    <div id="map" style="width: 50%; height: 250px"></div>
+  </section>
 
-    <section class="card">
-      <div id="brew1">
-        <h4 class="card-title" id="name-1">Name of Brewery 1</h4>
-        <p class="card-text" id="address-1">Could put address in here.</p>
-        <a href="#" class="btn btn-primary card-url" id="url-1">Brewery website</a>
-        <img src="./assets/imgs/craftbeer.jpg" alt="beer pic"/>
-      </div>
-    </section>
+  <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+  <script type="text/javascript" src="./assets/js/script.js"></script>
 
-    <section class="card">
-      <div id="brew2">
-        <h4 class="card-title" id="name-2">Name of Brewery 2</h4>
-        <p class="card-text" id="address-2">Could put address in here.</p>
-        <a href="#" class="btn btn-primary card-url" id="url-2">Brewery website</a>
-        <img src="./assets/imgs/beerline.jfif" alt="beer pic"/>
-      </div>
-    </section>
-
-    <section class="card">
-      <div id="brew3">
-        <h4 class="card-title" id="name-3">Name of Brewery 3</h4>
-        <p class="card-text" id="address-3">Could put address in here.</p>
-        <a href="#" class="btn btn-primary card-url" id="url-3">Brewery website</a>
-        <img src="./assets/imgs/BEERSAMPLE.jpg" alt="beer pic"/>
-      </div>
-    </section>
-
-    <section class="card">
-      <div id="brew4">
-        <h4 class="card-title" id="name-4">Name of Brewery 4</h4>
-        <p class="card-text" id="address-4">Could put address in here.</p>
-        <a href="#" class="btn btn-primary card-url" id="url-4">Brewery website</a>
-        <img src="./assets/imgs/beercheer.jpg" alt="beer pic"/>
-      </div>
-    </section>
-    <br/>
-
-    <section id="map-container">
-      <div id="map" style="width: 80%; height: 400px"></div>
-    </section>
-    <br />
-
-    <script src="./assets/js/script.js"></script>
-  </body>
+</body>
 </html>
