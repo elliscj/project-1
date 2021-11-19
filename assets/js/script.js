@@ -21,7 +21,7 @@ function findBreweries() {
   document.getElementById("map-container").innerHTML =
     "<div id='map' style='width: 80%; height: 400px;'></div>";
   searchLocation = document.getElementById("cityreq").value;
-  beerLocation = searchLocation.replaceAll(" ", "_");
+  beerLocation = searchLocation.trim().replaceAll(" ", "_");
 
   getApi();
 
@@ -47,7 +47,7 @@ function findBreweries() {
 
         // console.log(lat, long);
         // console.log(data[0].latitude, data[0].longitude);
-
+        breweries.splice(0, 4);
         for (let i = 0; i < 4; i++) {
           document.getElementsByClassName("card-title")[i].textContent =
             data[i].name;
