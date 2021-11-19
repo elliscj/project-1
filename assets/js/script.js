@@ -55,8 +55,12 @@ function findBreweries() {
             data[i].street),
             data[i].city,
             data[i].state;
-          document.querySelectorAll(".card-url")[i].textContent =
-            data[i].website_url;
+          document.querySelectorAll(".card-url")[i].innerHTML =
+            '<a href="' +
+            data[i].website_url +
+            '" target="_blank">' +
+            data[i].website_url +
+            "</a>";
           var lat = parseFloat(data[i].latitude);
           var long = parseFloat(data[i].longitude);
           var name = data[i].name;
