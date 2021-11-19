@@ -47,7 +47,7 @@ input[type="text"] {
   outline: none;
 }
 
-input[type="button"] {
+input[type="button"], .save {
   margin: 5px;
   padding: 5px;
   border-radius: 10px;
