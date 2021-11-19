@@ -4,6 +4,9 @@
 // });
 // console.log(placeSearch);
 
+var savedBrewery = JSON.parse(localStorage.getItem("breweries")) || [];
+console.log(savedBrewery);
+
 var requestUrl =
   "https://www.mapquestapi.com/geocoding/v1/address?key=1zplhBsQEJyaGd98SGJ6HjcN66lVvSDL";
 
@@ -49,6 +52,9 @@ function findBreweries() {
         // console.log(data[0].latitude, data[0].longitude);
         breweries.splice(0, 4);
         for (let i = 0; i < 4; i++) {
+          document
+            .querySelectorAll(".save")
+            [i].setAttribute("data-name", data[i].name);
           document.getElementsByClassName("card-title")[i].textContent =
             data[i].name;
           (document.getElementsByClassName("card-text")[i].textContent =
@@ -96,6 +102,18 @@ function findBreweries() {
       });
   }
 }
+document
+  .querySelector(".brewresults")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    if (event.target.matches(".save")) {
+      console.log("yes");
+      var breweryName = event.target.dataset.name;
+      console.log(breweryName);
+      savedBrewery.push(breweryName);
+      localStorage.setItem("breweries", JSON.stringify(savedBrewery));
+    }
+  });
 
 document.getElementById("submit").addEventListener("click", findBreweries);
 document.getElementById("cityreq").addEventListener("keyup", function (event) {
