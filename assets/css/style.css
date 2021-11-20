@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   font-family: 'Montagu Slab', serif;
+  overflow-wrap: break-word;
 }
 
 body,
@@ -95,7 +96,7 @@ input[type="button"], .save {
 }
 
 @media screen and (max-width: 992px) {
-  .site::before {
+  .site::fore {
     background-image: url("https://images.unsplash.com/photo-1618162803775-cd146ebac4c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjF8fGJlZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60");
     viewport-fit: 100%;
     background-position: center;
