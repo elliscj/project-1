@@ -1,29 +1,22 @@
-// placeSearch({
-//   key: "1zplhBsQEJyaGd98SGJ6HjcN66lVvSDL",
-//   container: document.querySelector("#place-search-input"),
-// });
-// console.log(placeSearch);
-
+// Setting variables
 var savedBrewery = JSON.parse(localStorage.getItem("breweries")) || [];
 console.log(savedBrewery);
-
 var requestUrl =
   "https://www.mapquestapi.com/geocoding/v1/address?key=1zplhBsQEJyaGd98SGJ6HjcN66lVvSDL";
-
-let searchLocation = ""; // prompt("Where would you like to drink beer?");
+let searchLocation = "";
 let beerLocation = "";
-
-console.log(searchLocation);
-console.log(beerLocation);
-
 var breweries = [];
 
-// window.onload =
+// Functions
+
+// Main function to find breweries & display them on the map
 function findBreweries() {
+  // "map.remove()" clears out container to allow for more than one search without having to refresh the page
   map.remove();
   document.getElementById("map-container").innerHTML =
     "<div id='map' style='width: 80%; height: 400px;'></div>";
   searchLocation = document.getElementById("cityreq").value;
+  // Replaces spaces in locations such as "Fort Collins" or "San Diego" with underscores i.e. "Fort_Collins", "San_Diego"
   beerLocation = searchLocation.trim().replaceAll(" ", "_");
 
   getApi();
@@ -48,9 +41,9 @@ function findBreweries() {
         console.log(data[0].street, data[0].city, ",", data[0].state);
         console.log(data[0].name);
 
-        // console.log(lat, long);
-        // console.log(data[0].latitude, data[0].longitude);
         breweries.splice(0, 4);
+
+        // Pulls data retrieved from brewUrl query and displays it on the cards on the application
         for (let i = 0; i < data.length; i++) {
           document
             .querySelectorAll(".save")
@@ -72,6 +65,7 @@ function findBreweries() {
           var locationObject = { lat, long, name };
           breweries.push(locationObject);
         }
+        // Creates map and pulls brewery information to use latitude/longitude coordinates to place markers at corresponding location
         L.mapquest.key = "1zplhBsQEJyaGd98SGJ6HjcN66lVvSDL";
         L.mapquest.geocoding().geocode(searchLocation, createMap);
         function createMap(error, response) {
@@ -94,21 +88,15 @@ function findBreweries() {
               .bindPopup(breweries[i].name)
               .addTo(map);
           }
-          // L.marker([39.7392, -104.9903], {
-          //   icon: L.mapquest.icons.marker(),
-          //   draggable: false,
-          // })
-          //   .bindPopup("Denver, CO")
-          //   .addTo(map);
         }
         console.log(breweries);
       });
   }
 }
+// Localstorage function to save queries
 document
   .querySelector(".brewresults")
   .addEventListener("click", function (event) {
-    // event.preventDefault();
     if (event.target.matches(".save")) {
       console.log("yes");
       var breweryName = event.target.dataset.name;
@@ -118,6 +106,7 @@ document
     }
   });
 
+  // Event listeners to attach functions to buttons
 document.getElementById("submit").addEventListener("click", findBreweries);
 document.getElementById("cityreq").addEventListener("keyup", function (event) {
   if (event.code === "Enter") {
@@ -125,7 +114,3 @@ document.getElementById("cityreq").addEventListener("keyup", function (event) {
     document.getElementById("submit").click();
   }
 });
-
-// var place = document.getElementById("#place-search-input");
-
-console.log("./imgs/img-1.jpg");
