@@ -51,7 +51,7 @@ function findBreweries() {
         // console.log(lat, long);
         // console.log(data[0].latitude, data[0].longitude);
         breweries.splice(0, 4);
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < data.length; i++) {
           document
             .querySelectorAll(".save")
             [i].setAttribute("data-name", data[i].name);
@@ -63,6 +63,9 @@ function findBreweries() {
             data[i].state;
           document.querySelectorAll(".card-url")[i].textContent =
             data[i].website_url;
+          document
+            .querySelectorAll(".card-url")
+            [i].setAttribute("href", data[i].website_url);
           var lat = parseFloat(data[i].latitude);
           var long = parseFloat(data[i].longitude);
           var name = data[i].name;
@@ -105,7 +108,7 @@ function findBreweries() {
 document
   .querySelector(".brewresults")
   .addEventListener("click", function (event) {
-    event.preventDefault();
+    // event.preventDefault();
     if (event.target.matches(".save")) {
       console.log("yes");
       var breweryName = event.target.dataset.name;
