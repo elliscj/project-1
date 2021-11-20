@@ -1,3 +1,4 @@
+/* Universal Selectors */
 * {
   box-sizing: border-box;
   font-family: 'Montagu Slab', serif;
@@ -16,6 +17,8 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
  }
+
+/* Site Title & Input Button */
 
 #title {
   font-family: 'Montagu Slab',
@@ -57,6 +60,8 @@ input[type="button"], .save {
   border: 5px;
 }
 
+/* Brewery Info Cards */
+
 .brewresults {
   flex: 2;
   padding: 20px;
@@ -88,12 +93,16 @@ input[type="button"], .save {
   font-weight: normal;
 }
 
+/* Map Display */
+
 #map {
   display: flex;
   align-items: center;
   margin: 0 auto;
 
 }
+
+/* Media Queries */
 
 @media screen and (max-width: 992px) {
   .site::fore {
