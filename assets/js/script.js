@@ -1,6 +1,6 @@
 // Setting variables
 var savedBrewery = JSON.parse(localStorage.getItem("breweries")) || [];
-console.log(savedBrewery);
+// console.log(savedBrewery);
 var requestUrl =
   "https://www.mapquestapi.com/geocoding/v1/address?key=1zplhBsQEJyaGd98SGJ6HjcN66lVvSDL";
 let searchLocation = "";
@@ -41,9 +41,8 @@ function findBreweries() {
         console.log(data[0].street, data[0].city, ",", data[0].state);
         console.log(data[0].name);
 
-        breweries.splice(0, 4);
-
         // Pulls data retrieved from brewUrl query and displays it on the cards on the application
+        breweries.splice(0, 4);
         for (let i = 0; i < data.length; i++) {
           document
             .querySelectorAll(".save")
@@ -106,7 +105,7 @@ document
     }
   });
 
-  // Event listeners to attach functions to buttons
+// Event listeners to attach functions to buttons
 document.getElementById("submit").addEventListener("click", findBreweries);
 document.getElementById("cityreq").addEventListener("keyup", function (event) {
   if (event.code === "Enter") {
