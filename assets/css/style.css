@@ -1,7 +1,7 @@
 /* Universal Selectors */
 * {
   box-sizing: border-box;
-  font-family: 'Montagu Slab', serif;
+  font-family: "Montagu Slab", serif;
   overflow-wrap: break-word;
 }
 
@@ -10,27 +10,26 @@ html {
   viewport-fit: 100%;
 }
 
- .site {  
+.site {
   background-image: url("https://media.istockphoto.com/photos/empty-the-top-of-wooden-table-with-blurred-counter-bar-and-bottles-picture-id924418614?b=1&k=20&m=924418614&s=170667a&w=0&h=PpvGRk1CFc6Vlr1i5L4NB2rVHDD3i1p0cqr4Tx_sZdo=");
   viewport-fit: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
- }
+}
 
 /* Site Title & Input Button */
 
 #title {
-  font-family: 'Montagu Slab',
-  serif;
+  font-family: "Montagu Slab", serif;
   font-size: 55px;
   font-weight: bold;
   text-align: center;
-  color:rgb(223, 163, 11);
-
+  color: rgb(223, 163, 11);
 }
 
-h1 {
+h1,
+aside {
   text-align: center;
   color: rgb(223, 163, 11);
 }
@@ -51,7 +50,8 @@ input[type="text"] {
   outline: none;
 }
 
-input[type="button"], .save {
+input[type="button"],
+.save {
   margin: 5px;
   padding: 5px;
   border-radius: 10px;
@@ -78,7 +78,7 @@ input[type="button"], .save {
   flex: 0 0 185px;
   background-color: hsla(202, 7%, 21%, 0.1);
   text-align: center;
-  color:rgb(223, 163, 11);
+  color: rgb(223, 163, 11);
   font-weight: normal;
   font-size: 18px;
 }
@@ -99,7 +99,17 @@ input[type="button"], .save {
   display: flex;
   align-items: center;
   margin: 0 auto;
+}
 
+#brewlist {
+  display: block;
+  float: center;
+  list-style-position: inside;
+  background-color: hsla(202, 7%, 21%, 0.1);
+  text-align: center;
+  color: rgb(223, 163, 11);
+  font-weight: normal;
+  font-size: 18px;
 }
 
 /* Media Queries */
@@ -131,13 +141,13 @@ input[type="button"], .save {
     background-size: cover;
   }
 
-h1, .card, .btn {
-  color: whitesmoke;
-
+  h1,
+  .card,
+  .btn {
+    color: whitesmoke;
   }
 
   #map {
     width: 100%;
   }
-
 }
